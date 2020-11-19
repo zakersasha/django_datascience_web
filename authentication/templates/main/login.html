@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Авторизоваться{% endblock %}
+
+{% block content %}
+        <form id="reg" method="post">
+        <h1 id="qwe">Авторизоваться</h1>
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <center>
+            <button class="btn btn-success mt-2" type="submit">Войти</button>
+        </center>
+    </form>
+{% endblock %}
+
+
+

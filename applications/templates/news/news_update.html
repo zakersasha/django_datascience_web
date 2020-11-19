@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Редактирование статьи{% endblock %}
+
+{% block content %}
+
+    <form id="reg" method="post">
+    <h1>Редактирование статьи</h1>
+        {% csrf_token %}
+        {{ form.event_name }}<br>
+        {{ form.title }}<br>
+        {{ form.question }}<br>
+        {{ form.full_text }}<br>
+        <span>{{ error }}</span>
+
+        <button class="btn btn-success" type="submit">Обновить</button>
+
+    </form>
+</div>
+{% endblock %}

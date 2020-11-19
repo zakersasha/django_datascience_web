@@ -1,0 +1,83 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+<aside>
+    <img src="{% static 'main/img/owl.svg' %}" alt="logo">
+    <span class="logo">MindGames</span>
+    <span class="navbar-text">
+            {% if request.user.is_authenticated %}
+                <b>Привет, {{ user.username }}</b> | <a class="mb-5" href="{% url 'logout' %}">Выход</a><br>
+                <a href="{% url 'account' %}">
+
+                <button class="btn btn-warning"><i class="fas fa-user-circle"></i> Личный кабинет</button>
+                </a><br><br>
+
+                <a href="{% url 'add' %}">
+
+                <button class="btn btn-info"><i class="fas fa-chart-bar"></i> Анализ</button>
+
+                </a>
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'applications' %}">
+
+                    <button class="btn btn-info"><i class="fas fa-pencil-alt"></i> Заявки</button>
+
+                    </a>
+                {% endif %}
+
+            {% else %}
+                <a href="{% url 'login' %}">Войти</a> | <a href="{% url 'register' %}">Регистрация</a>
+            {% endif %}
+        </span>
+
+
+    <h3>Навигация</h3>
+    <ul>
+        <a href="{% url 'home' %}">
+            <li><i class="fas fa-home"></i> Главная</li>
+        </a>
+        <a href="{% url 'about' %}">
+            <li><i class="fas fa-address-card"></i> О нас</li>
+        </a>
+        <a href="{% url 'statistics' %}">
+            <li><i class="far fa-newspaper"></i> Статистика</li>
+        </a>
+        <a href="{% url 'contacts' %}">
+            <li><i class="fas fa-paper-plane"></i> Контакты</li>
+        </a>
+
+    </ul>
+</aside>
+<div class="col-md-5"></div>
+{% if messages %}
+
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div id="warning" class="alert alert-danger col-md-5 center-block" role="alert">
+                {{ message }}
+            </div>
+        {% else %}
+            <div id="warning" class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+</body>
+</html>

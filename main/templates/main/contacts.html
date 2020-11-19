@@ -1,0 +1,45 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <table class="table_col">
+            <colgroup>
+                <col style="background:#2c2c2c;">
+            </colgroup>
+            <tr>
+                <th>Участник</th>
+                <th>Роль</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>Кочетов Денис</td>
+                <td>Капитан, ML-developer</td>
+                <td>denkochetov322@gmail.com</td>
+
+            </tr>
+
+            <tr>
+                <td>Темник Арсений</td>
+                <td>Front-end developer</td>
+                <td>arsenitem@bk.ru</td>
+
+            </tr>
+
+            <tr>
+                <td>Харламов Александр</td>
+                <td>Back-end developer</td>
+                <td>sasha.kharlamov99@mail.ru</td>
+
+            </tr>
+            <tr>
+                <td>Якубов Артем</td>
+                <td>ML-developer</td>
+                <td>art-yakubov@yandex.ru</td>
+
+            </tr>
+        </table>
+    </div>
+{% endblock %}

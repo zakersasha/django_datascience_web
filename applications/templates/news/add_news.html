@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Провести анализ{% endblock %}
+
+{% block content %}
+
+    <form id="reg" method="post">
+    <h1 id="qwer">Провести анализ</h1>
+        {% csrf_token %}
+        {{ form.event_name }}<br>
+        {{ form.title }}<br>
+        {{ form.question }}<br>
+        {{ form.full_text }}
+        <input id="file" type="file" name="f"><br>
+        {{ form.date }}<br>
+        <span>{{ error }}</span>
+
+        <button class="btn btn-success" type="submit">Отправить заявку</button>
+
+    </form>
+
+{% endblock %}

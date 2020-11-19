@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+
+{% block title %}Профиль {{ user.username }}{% endblock %}
+
+{% block content %}
+
+    <form id="reg">
+        <center>
+            <img src="profile.svg" alt="logo"><br>
+        </center>
+        <h1>Личный кабинет</h1>
+
+        Username : {{ user.username }}<br>
+        Email : {{ user.username }}<br>
+        Имя : {{ user.name }}<br>
+        Фамилия : {{ user.surname }}<br>
+
+    </form>
+
+{% endblock %}
+
