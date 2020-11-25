@@ -7,6 +7,36 @@
     <div class="features">
         <h1>{{ article.event_name }}</h1>
         <p>{{ article.title }}</p>
+
+        <table class="table_col">
+            <colgroup>
+                <col style="background:#2c2c2c;">
+            </colgroup>
+            <tr>
+                <th>Показатель</th>
+                <th>Значение</th>
+            </tr>
+            <tr>
+                <td>Количество символов</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Количество слов</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Количество ошибок</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Словарный запас</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Количество значимых слов</td>
+                <td></td>
+            </tr>
+        </table><br>
         <a href="{% url 'applications-delete' article.id %}" class="btn btn-danger">Удалить</a>
         <a href="{% url 'applications-update' article.id %}" class="btn btn-info">Редактирование</a>
     </div>

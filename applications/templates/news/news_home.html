@@ -4,19 +4,25 @@
 {% block title %}Новости на сайте{% endblock %}
 
 {% block content %}
-<div class="features">
-    <h1>Статистика</h1>
-    {% if applications %}
-        {% for el in applications %}
-        <div class="alert alert-warning">
-            <h3>{{ el.event_name }}</h3>
-            <p>{{ el.title }}</p>
-            <a href="{% url 'applications-detail' el.id %}" class="btn btn-warning">Детальнее</a>
-            <a href="{% url 'applications-detail' el.id %}" class="btn btn-info">Назначить статус</a>
-        </div>
-    {% endfor %}
-    {% else %}
-        <p>У вас нет записей</p>
-    {% endif %}
-</div>
+    <div class="features">
+        <h1>Статистика</h1>
+        {% if applications %}
+            {% for el in applications %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.event_name }}</h3>
+                    <p>{{ el.title }}</p>
+                    <p>testuser</p>
+                    <a href="{% url 'applications-detail' el.id %}" class="btn btn-warning">Детальнее</a>
+                    <select>
+                        <option label="Выберите статус" value="1" disabled selected>Выберите статус</option>
+                        <option>Проверено</option>
+                        <option>На рассмотрении</option>
+                        <option>Отклонено</option>
+                    </select>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>У вас нет записей</p>
+        {% endif %}
+    </div>
 {% endblock %}
